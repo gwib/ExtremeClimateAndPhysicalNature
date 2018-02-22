@@ -1,0 +1,134 @@
+\documentclass[12pt,a4paper,oneside]{report}
+%\documentclass[12pt,a4paper,twoside,draft]{report}
+\usepackage[utf8]{inputenc}
+% OLD : \usepackage[utf8x]{inputenc}
+\usepackage[english,danish]{babel} 	% dansk orddeling, overskrifter mv.
+\usepackage[T1]{fontenc}     		% pæne fonte    
+\usepackage{lmodern}				% Bedre fonte til dansk
+\usepackage[normalem]{ulem}			% For at kunne tegne en streg over tekst
+\usepackage{graphicx}
+\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{lastpage}				% Allows determination of last page
+\usepackage{mathtools}
+\usepackage{amsmath}				% Use math
+\usepackage{placeins} 				% Defines \FloatBarrier
+\usepackage{mcode} 					% Maa ikke slettes!
+\usepackage{listings}				% Latex kode formatering
+\usepackage{wrapfig}				% Allow to wrap text and pic
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{wasysym}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage[export]{adjustbox} 		% Vertical allign in subplot
+
+\usepackage{indentfirst}
+
+%\usepackage{mathabx}
+\usepackage{graphicx}
+
+\usepackage[hidelinks]{hyperref}
+\setcounter{tocdepth}{3}
+\usepackage[toc,page]{appendix}
+\setcounter{secnumdepth}{3}
+\usepackage{color, colortbl}
+%\definecolor{name}{system}{definition}
+\definecolor{Tab}{gray}{0.9}
+\definecolor{Gray}{rgb}{1,0.76,0.76}
+\def\emptyline{\vspace{12pt}}
+\newcommand{\hilight}[1]{\colorbox{red}{#1}}
+\let\conjugatet\overline
+
+
+\newcommand{\Conv}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}%
+
+
+%% FOR vectors:
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
+%% For vector arrows:
+
+    \newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
+
+
+
+%\usepackage{draftwatermark}
+\usepackage{subcaption}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{subfigure}
+
+%\selectlanguage{danish}
+
+
+\setlength{\headheight}{15pt}
+\pagestyle{fancyplain}	% "fancy" -> not header on chapters 
+\fancyhead{}		% resets header and footer from default
+\fancyfoot{}
+\fancyhead[C]{}
+\fancyhead[LO,L]{Data Security in Vehicular Networks for Traffic Management}
+\fancyhead[RO,R]{Data Security}
+%\fancyfoot[C]{\thepage}   % get pagenumber on all pages in "fancy"-style
+\fancyfoot[RO,R]{Page \thepage \ of \pageref{LastPage}}
+
+%\parindent = 0pt
+
+% Added command for blue-colored text
+\newcommand{\Bluey}[1]{\textcolor{blue}{#1}}
+
+\begin{document}
+
+%\lstset{language=Matlab} 	% Sørger for at bruge matlab highlights
+\input{tex/frontpage}
+
+\urlstyle{same}
+\selectlanguage{english}
+
+\newpage
+
+\renewcommand*{\thesection}{\arabic{section}}
+
+\tableofcontents
+
+
+
+%\include{tex/WorkProgress}
+
+\include{tex/Q1}
+
+\include{tex/Q2}
+
+\include{tex/threats}
+
+\include{tex/solutions}
+
+\include{tex/discussion}
+
+\include{tex/conclusion}
+
+\bibliographystyle{unsrt}
+\bibliography{tex/refs}
+
+\include{tex/appendix}
+
+\end{document}

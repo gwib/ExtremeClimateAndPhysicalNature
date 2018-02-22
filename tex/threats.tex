@@ -1,0 +1,60 @@
+\section{Threats}
+Real-time technologies, transferring data via a network, are very vulnerable for attacks. Of the two technologies presented, the car-to-X network is especially vulnerable to all sorts of attacks. As there are so many vehicles on the road at different locations and different times, all generating and sending data, it is hard to keep track of all of them, in addition to the fact that authentication and verification is really hard due to privacy issues.
+The attacks impose a lot of danger on the road, as wrong information or decision-making due to attacks or just failure may lead to serious accidents.
+\subsection{Properties of attacks}
+Following the classification description of \cite{adhocNetworking}, attacks on car-to-X systems or generally, AdHoc networking systems, can be characterized by the following properties:
+\begin{itemize}
+\item Attacker
+    \begin{itemize}
+        \item \textit{Insider:} member node who can communicate with other members of the network
+        \item \textit{Outsider} not authenticated to directly communicate with other members of the network
+    \end{itemize}
+\item {Purpose of Attack}
+    \begin{itemize}
+        \item \textit{Malicious} damage the member  nodes and the network without looking for its personal benefit
+        \item \textit{Rational} benefit from the attack
+    \end{itemize}
+\item Method
+    \begin{itemize}
+        \item \textit{Active} generating new packages to damage the network
+        \item \textit{Passive} eavesdrop the package and not generating any more
+    \end{itemize}
+\item Scope
+    \begin{itemize}
+        \item \textit{Local} limited in scope although it may consist of several entities
+        \item \textit{Extended} controlling several entities scattered across the network.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Known attacks}
+There are several known attacks on networking systems such as the Car-to-X system, the following are the most frequently mentioned in literature.\cite{svn}\cite{adhocNetworking}
+\subsubsection{Sybil attack}
+The Sybil attack is an attack on authentication.
+In a nutshell, it is the action of one entity representing multiple entities at the same time and thus controlling a larger part of the system \cite{sybil}. This may for example be beneficial for a driver to keep the road clear by sending lots of signals and therefore indicate a lot of traffic, leading the systems to avoid these area. It is also quite dangerous, as, considering a self-driving car, several cars around a "real" car that need to be "avoided" can cause a lot of chaos and lead to accidents.
+\subsubsection{Denial of Service}
+The Denial of Service (DoS) attack is a very popular attack on network availability. It overloads the server with messages such that it can't handle them anymore. DoS Attacks are especially popular for activism as they give a lot of negative attention to the technology. \cite{SiC}
+Distributed DoS attacks attack first the machines and use them then to plant some sort of virus on the machine \cite{SiC}. It can also only perform the first step, creating an information overflow for the car and therefore creating a denial of service \cite{adhocNetworking}.
+
+\subsubsection{Message Suppression/ Timing}
+Message Suppression attacks and Timing attacks are quite similar: In these attacks, a vehicle/receiver either drops a message it received from another vehicle instead of sending it to the vehicles around it, or delays the transmission of the message for a certain time, causing chaos and errors in the system and the control.
+This attack is not only violating the authentication property but also comprising the system's integrity \cite{svn}\cite{adhocNetworking}.
+
+\subsubsection{Spoofing}
+An example for spoofing is mentioned in \cite{adhocNetworking}. Here, the attacker generates GPS signals that are stronger than the "real" ones, overwriting the vehicle's position. This can also happen when the vehicle drives through a tunnel (bad signal), giving the attacker the chance to inject a different location in the car's data.
+
+\subsubsection{Summary}
+\begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.5]{graphics/attacktable.png}
+        \caption{List of common network attacks and their characterization \cite{adhocNetworking}}
+        \label{fig:networkAttacks}
+\end{figure}
+
+\ref{fig:networkAttacks} shows the most common attacks performed in vehicular ad hoc networks. One can easily see that there are many known attacks on the authentication and the availability property. These have already been assessed in 2.3 competing with privacy. Note, that the only attack comprising confidentiality (integrity) is the Man in the Middle Attack as this attack also may alter the messages sent between the vehicles.
+
+\subsection{Necessity of Policies protecting Privacy}
+The key players of Car-to-X and Traffic Management technologies are corporations in the private sector. They invest in the technology to gather, store, and analyze data \cite{broederspolicy}. Having so much user data available, this might create a conflict of interest, as this data can be used to earn a lot more money, to the cost of people's privacy. \\
+Tracking, for example, users' daily moving patterns, may be used to target advertisement.A great deal of personal information is collected on consumers, and this is not only used for improvements, but also for target advertising.
+
+To ensure information is not exploited, it is necessary for this usage to be safeguarded. To maintain interests of both people and corporations, the government should implement policies that would protect its citizens, while at the same time allowing for technological advancements.
